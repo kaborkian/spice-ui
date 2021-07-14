@@ -1,3 +1,99 @@
-button {
-  background-color: red;
+$primary-color: #3e8bf2;
+$secondary-color: #e7e7e7;
+$success-color: #179c5b;
+$danger-color: #db3e38;
+$highlight-color: #f4b01e;
+$special-color: #952dfa;
+$disabled-color: #e0e0e0;
+
+%btn {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 6px 12px;
+  text-align: center;
+  border: 0.14rem solid black;
+  outline: none;
+  cursor: pointer;
+  margin: 4px;
+}
+
+// colors
+.primary {
+  @extend %btn;
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+.secondary {
+  @extend %btn;
+  background-color: $secondary-color;
+  color: #000;
+}
+.success {
+  @extend %btn;
+  background-color: $success-color;
+  color: $secondary-color;
+}
+.danger {
+  @extend %btn;
+  background-color: $danger-color;
+  color: $secondary-color;
+}
+.highlight {
+  @extend %btn;
+  background-color: $highlight-color;
+  color: $secondary-color;
+}
+.special {
+  @extend %btn;
+  background-color: $special-color;
+  color: $secondary-color;
+}
+.disabled {
+  @extend %btn;
+  background-color: $disabled-color;
+  color: #656565;
+  cursor: not-allowed;
+}
+
+// variants
+.outline {
+  background-color: transparent;
+  color: calc(calc("--" + attr()) + "-color");
+  border-color: attr(color);
+}
+
+// shape
+.rounded {
+  border-radius: 10px;
+}
+.pill {
+  border-radius: 1000px;
+}
+
+// hover animations
+.glow:hover {
+  color: red;
+}
+
+// booleans
+.no-border {
+  border: none;
+}
+
+// shapes
+.sharp {
+  border-radius: 0px;
+}
+.rounded {
+  border-radius: 10px;
+}
+.pill {
+  border-radius: 1000px;
+}
+
+.solid {
+  border: 0.2rem solid black;
+}
+.dotted {
+  border: 0.2rem dotted black;
 }
