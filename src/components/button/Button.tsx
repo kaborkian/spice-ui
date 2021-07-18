@@ -3,12 +3,14 @@ import "./Button.scss";
 
 interface Props {
   text: string;
+  class_name: string;
 }
 
 const Button: React.FC<Props> = (props) => {
+  const { text, class_name } = props;
   return (
     <>
-      <button>{props.text}</button>
+      <button className={class_name}>{text}</button>
     </>
   );
 };
