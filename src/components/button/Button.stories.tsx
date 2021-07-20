@@ -1,4 +1,5 @@
 import React from "react";
+import makeCollage from "../collage/Collage";
 import Button from "./Button";
 
 const cartesian = (a: any) =>
@@ -30,10 +31,17 @@ let combinations = cartesian(catagories);
 export default {
   title: "Button",
 };
+
+export const test = () => makeCollage(Button, catagories);
+
 export const collage = () => (
   <div>
     {combinations.map((comb: [], id: number) => (
-      <Button text={comb.join(" ")} class_name={comb.join(" ")}></Button>
+      <Button
+        key={id}
+        text={comb.join(" ")}
+        class_name={comb.join(" ")}
+      ></Button>
     ))}
   </div>
 );

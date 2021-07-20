@@ -2,8 +2,8 @@ import React from "react";
 import "./Button.scss";
 
 interface Props {
-  text: string;
-  class_name: string;
+  text?: string;
+  class_name?: string;
 }
 
 const Button: React.FC<Props> = (props) => {
