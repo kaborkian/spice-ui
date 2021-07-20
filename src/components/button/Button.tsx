@@ -2,15 +2,15 @@ import React from "react";
 import "./Button.scss";
 
 interface Props {
-  text?: string;
+  children?: any;
   class_name?: string;
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { text, class_name } = props;
+  const { children, class_name } = props;
   return (
     <>
-      <button className={class_name}>{text}</button>
+      <button className={class_name}>{children}</button>
     </>
   );
 };
