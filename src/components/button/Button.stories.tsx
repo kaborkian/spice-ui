@@ -1,4 +1,6 @@
+import React from "react";
 import makeCollage from "../collage/Collage";
+// import makeTest from "../collage/Collage";
 import Button from "./Button";
 
 const catagories = [
@@ -25,4 +27,12 @@ const catagories = [
 export default {
   title: "Button",
 };
-export const Collage = () => makeCollage(Button, catagories);
+export const Collage = () =>
+  makeCollage(Button, catagories, "class_name", "children");
+
+const catagoriesPlus = {
+  class_name: [
+    ["primary", "secondary"],
+    ["rounded", "pill"],
+  ],
+};
