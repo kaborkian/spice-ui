@@ -4,13 +4,12 @@ import makeCollage from "../collage/Collage";
 import Button from "./Button";
 
 const catagories = [
-  ["btn"], //list of length one is like adding it to all
   [
     // colors
-    "primary",
-    // "secondary",
-    "success",
-    "danger",
+    "btn-primary",
+    "btn-secondary",
+    "btn-success-outline",
+    "btn-danger-outline",
     // "warning",
     "special-outline",
     // "disabled",

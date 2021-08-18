@@ -1,4 +1,5 @@
 @import "./utilities/themes.scss";
+$theme-colors: $default-theme-colors;
 
 .btn {
   font-weight: 700;
@@ -9,41 +10,33 @@
   outline: none;
   cursor: pointer;
   margin: 4px;
-}
 
-// color loops
-// basic
-@each $color, $value in $default-theme-colors {
-  .#{$color} {
-    background-color: $value;
-    color: black;
+  // color loops
+  // basic
+  @each $color, $value in $theme-colors {
+    &-#{$color} {
+      @extend .btn;
+      background: $value;
+      color: black;
+      //outline
+      &-outline {
+        @extend .btn;
+        background-color: transparent;
+        color: $value;
+        border-color: $value;
+        //neon
+        &-neon {
+        }
+      }
+    }
   }
-}
-//outline
-@each $color, $value in $default-theme-colors {
-  .#{$color}-outline {
-    background-color: transparent;
-    color: $value;
-    border-color: $value;
+
+  // specail case overrides
+  .disabled {
+    background-color: map-get($theme-colors, "disabled");
+    color: #656565;
+    cursor: not-allowed;
   }
-}
-
-// specail case overrides
-.sunset-grad {
-  background: map-get($default-theme-colors, "sunset-grad");
-}
-.disabled {
-  background-color: map-get($default-theme-colors, "disabled");
-  color: #656565;
-  cursor: not-allowed;
-}
-
-// shape
-.rounded {
-  border-radius: 10px;
-}
-.pill {
-  border-radius: 1000px;
 }
 
 // hover animations

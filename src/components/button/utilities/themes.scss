@@ -1,15 +1,22 @@
 $default-theme-colors: (
   "primary": #3e8bf2,
-  "secondary": #ffffff,
+  "secondary": white,
   "success": #179c5b,
   "danger": #db3e38,
   "warning": #f4b01e,
   "special": #952dfa,
   "wildcard": hotpink,
   "disabled": #e0e0e0,
-  "sunset-grad": linear-gradient(90deg,
-  rgba(131, 58, 180, 1) 0%,
-  rgba(253, 29, 29, 1) 50%,
-  rgba(252, 176, 69, 1) 100%)
+  "sunset-grad": linear-gradient(90deg, #8241b2 0%, #fd001f 50%, #fcad4b 100%),
 );
-
+$inverted-theme-colors: (
+  "primary": #c1740d,
+  "secondary": black,
+  "success": #e863a4,
+  "danger": #24c1c7,
+  "warning": #0b4fe1,
+  "special": #6ad205,
+  "wildcard": #01974c,
+  "disabled": #1f1f1f,
+  "sunset-grad": linear-gradient(90deg, #7dbe4d 0%, #02ffe0 50%, #0352b4 100%),
+);
