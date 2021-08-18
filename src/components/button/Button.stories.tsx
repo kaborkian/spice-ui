@@ -6,13 +6,13 @@ import Button from "./Button";
 const catagories = [
   [
     // colors
-    "primary",
-    "secondary",
-    "success",
-    "danger",
-    "highlight",
-    "special",
-    "disabled",
+    "btn-outline-primary",
+    "btn-secondary",
+    "btn-success",
+    "btn-danger",
+    "btn-warning",
+    "btn-special",
+    "btn-disabled",
   ],
   [
     // shapes
@@ -20,8 +20,7 @@ const catagories = [
     "rounded",
     "pill",
   ],
-  //borders
-  ["solid", "dashed"],
+  ["outline", ""]
 ];
 
 export default {

@@ -1,12 +1,6 @@
-$primary-color: #3e8bf2;
-$secondary-color: #e7e7e7;
-$success-color: #179c5b;
-$danger-color: #db3e38;
-$highlight-color: #f4b01e;
-$special-color: #952dfa;
-$disabled-color: #e0e0e0;
+@import "./utilities/themes.scss";
 
-%btn {
+@mixin btn {
   font-weight: 700;
   font-size: 1rem;
   padding: 6px 12px;
@@ -17,49 +11,31 @@ $disabled-color: #e0e0e0;
   margin: 4px;
 }
 
-// colors
-.primary {
-  @extend %btn;
-  background-color: $primary-color;
-  color: $secondary-color;
+// variant loops
+// basic
+@each $color, $value in $default-theme-colors {
+  .btn-#{$color} {
+    @include btn;
+    background-color: $value;
+    color: black;
+  }
 }
-.secondary {
-  @extend %btn;
-  background-color: $secondary-color;
-  color: #000;
-}
-.success {
-  @extend %btn;
-  background-color: $success-color;
-  color: $secondary-color;
-}
-.danger {
-  @extend %btn;
-  background-color: $danger-color;
-  color: $secondary-color;
-}
-.highlight {
-  @extend %btn;
-  background-color: $highlight-color;
-  color: $secondary-color;
-}
-.special {
-  @extend %btn;
-  background-color: $special-color;
-  color: $secondary-color;
-}
-.disabled {
-  @extend %btn;
-  background-color: $disabled-color;
-  color: #656565;
-  cursor: not-allowed;
+//outline
+@each $color, $value in $default-theme-colors {
+  .btn-outline-#{$color} {
+    @include btn;
+    background-color: transparent;
+    color: $value;
+    border-color: $value;
+  }
 }
 
-// variants
-.outline {
-  background-color: transparent;
-  color: calc(calc("--" + attr()) + "-color");
-  border-color: attr(color);
+// specail case overrides
+.disabled {
+  @include btn;
+  background-color: map-get($default-theme-colors, "disabled");
+  color: #656565;
+  cursor: not-allowed;
 }
 
 // shape
