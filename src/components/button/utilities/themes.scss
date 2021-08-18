@@ -1,9 +1,15 @@
 $default-theme-colors: (
   "primary": #3e8bf2,
-  "secondary": #e7e7e7,
+  "secondary": #ffffff,
   "success": #179c5b,
   "danger": #db3e38,
   "warning": #f4b01e,
   "special": #952dfa,
+  "wildcard": hotpink,
   "disabled": #e0e0e0,
+  "sunset-grad": linear-gradient(90deg,
+  rgba(131, 58, 180, 1) 0%,
+  rgba(253, 29, 29, 1) 50%,
+  rgba(252, 176, 69, 1) 100%)
 );
+

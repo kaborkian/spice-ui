@@ -1,6 +1,6 @@
 @import "./utilities/themes.scss";
 
-@mixin btn {
+.btn {
   font-weight: 700;
   font-size: 1rem;
   padding: 6px 12px;
@@ -11,19 +11,17 @@
   margin: 4px;
 }
 
-// variant loops
+// color loops
 // basic
 @each $color, $value in $default-theme-colors {
-  .btn-#{$color} {
-    @include btn;
+  .#{$color} {
     background-color: $value;
     color: black;
   }
 }
 //outline
 @each $color, $value in $default-theme-colors {
-  .btn-outline-#{$color} {
-    @include btn;
+  .#{$color}-outline {
     background-color: transparent;
     color: $value;
     border-color: $value;
@@ -31,8 +29,10 @@
 }
 
 // specail case overrides
+.sunset-grad {
+  background: map-get($default-theme-colors, "sunset-grad");
+}
 .disabled {
-  @include btn;
   background-color: map-get($default-theme-colors, "disabled");
   color: #656565;
   cursor: not-allowed;

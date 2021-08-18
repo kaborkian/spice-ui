@@ -4,15 +4,18 @@ import makeCollage from "../collage/Collage";
 import Button from "./Button";
 
 const catagories = [
+  ["btn"], //list of length one is like adding it to all
   [
     // colors
-    "btn-outline-primary",
-    "btn-secondary",
-    "btn-success",
-    "btn-danger",
-    "btn-warning",
-    "btn-special",
-    "btn-disabled",
+    "primary",
+    // "secondary",
+    "success",
+    "danger",
+    // "warning",
+    "special-outline",
+    // "disabled",
+    "wildcard-outline",
+    "sunset-grad",
   ],
   [
     // shapes
@@ -20,7 +23,8 @@ const catagories = [
     "rounded",
     "pill",
   ],
-  ["outline", ""]
+  //bordrers
+  // ["solid", "dashed"],
 ];
 
 export default {
@@ -28,10 +32,3 @@ export default {
 };
 export const Collage = () =>
   makeCollage(Button, catagories, "class_name", "children");
-
-const catagoriesPlus = {
-  class_name: [
-    ["primary", "secondary"],
-    ["rounded", "pill"],
-  ],
-};
