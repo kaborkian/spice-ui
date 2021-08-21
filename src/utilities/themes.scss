@@ -20,3 +20,21 @@ $inverted-theme-colors: (
   "disabled": #1f1f1f,
   "sunset-grad": linear-gradient(90deg, #7dbe4d 0%, #02ffe0 50%, #0352b4 100%),
 );
+
+//functions
+@function str-split($string, $separator) {
+  $list: ();
+  $index: str-index($string, $separator);
+
+  @while $index != null {
+    $word: str-slice($string, 1, $index - 1);
+    $list: append($list, $word);
+    $string: str-slice(
+      $string,
+      $index + 1
+    ); // trimming the string to not include found word
+    $index: str-index($string, $separator);
+  }
+  $list: append($list, $string); // adding the last word
+  @return $list;
+}

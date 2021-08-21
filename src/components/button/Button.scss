@@ -1,5 +1,9 @@
-@import "./utilities/themes.scss";
+@import "../../utilities/themes.scss";
 $theme-colors: $default-theme-colors;
+$color-one: hotpink;
+$color-two: turquoise;
+
+//str-split("first second third", " ") => ("first", "second", "third")
 
 .btn {
   font-weight: 700;
@@ -10,25 +14,20 @@ $theme-colors: $default-theme-colors;
   outline: none;
   cursor: pointer;
   margin: 4px;
+  //when btn class is used alone (it shouldn't)
+  background-image: url("../../utilities/missing_texture.png");
+  color: white;
+  image-rendering: pixelated;
+  background-size: 1.25em;
 
-  // color loops
-  // basic
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @extend .btn;
-      background: $value;
-      color: black;
-      //outline
-      &-outline {
-        @extend .btn;
-        background-color: transparent;
-        color: $value;
-        border-color: $value;
-        //neon
-        &-neon {
-        }
-      }
-    }
+  @debug str-split("first second third", " ");
+}
+
+@each $color, $value in $theme-colors {
+  .#{$color} {
+    @extend .btn;
+    background: $value;
+    color: black;
   }
 
   // specail case overrides
