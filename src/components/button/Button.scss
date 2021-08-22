@@ -1,9 +1,10 @@
 @import "../../utilities/themes.scss";
 $theme-colors: $default-theme-colors;
-$color-one: hotpink;
-$color-two: turquoise;
+$current-color: hotpink;
 
-//str-split("first second third", " ") => ("first", "second", "third")
+:root {
+  --current-color: red;
+}
 
 .btn {
   font-weight: 700;
@@ -19,23 +20,41 @@ $color-two: turquoise;
   color: white;
   image-rendering: pixelated;
   background-size: 1.25em;
-
-  @debug str-split("first second third", " ");
 }
 
 @each $color, $value in $theme-colors {
   .#{$color} {
     @extend .btn;
     background: $value;
+    color: $value;
+    --current-color: currentColor;
     color: black;
-  }
 
-  // specail case overrides
-  .disabled {
-    background-color: map-get($theme-colors, "disabled");
-    color: #656565;
-    cursor: not-allowed;
+    &.outline {
+      border-color: $value;
+      color: $value;
+      background-color: transparent;
+
+      &.neon { //special case for neon + outline
+        color: $value;
+        text-shadow: 0 0 1em $value;
+        box-shadow: 0 0 1.2em $value;
+      }
+    }
+
+    &.neon {  //solid neon is default
+      border-color: $value;
+      color:  white;
+      box-shadow: 0 0 1em $value;
+    }
   }
+}
+
+// specail case overrides
+.disabled {
+  background-color: map-get($theme-colors, "disabled");
+  color: #656565;
+  cursor: not-allowed;
 }
 
 // hover animations

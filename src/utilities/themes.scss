@@ -22,6 +22,7 @@ $inverted-theme-colors: (
 );
 
 //functions
+//str-split("first second third", " ") => ("first", "second", "third")
 @function str-split($string, $separator) {
   $list: ();
   $index: str-index($string, $separator);

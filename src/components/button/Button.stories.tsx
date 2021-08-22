@@ -6,20 +6,22 @@ import Button from "./Button";
 const catagories = [
   [
     // colors
-    "btn",
-    "btn secondary",
-    "btn success outline",
-    "btn danger outline neon",
-    // "warning",
+    // "success",
+    "danger",
+    // "special",
+    // "danger outline neon",
+    // "special outline neon",
     // "special-outline",
     // "disabled",
     // "wildcard-outline",
-    "sunset-grad",
+    // "sunset-grad",
   ],
+  ["", "outline"],
+  ["", "neon"],
   [
     // shapes
-    "sharp",
-    "rounded",
+    // "sharp",
+    // "rounded",
     "pill",
   ],
   //bordrers
