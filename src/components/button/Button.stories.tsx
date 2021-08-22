@@ -6,22 +6,26 @@ import Button from "./Button";
 const catagories = [
   [
     // colors
-    "primary",
-    "secondary",
-    "success",
+    // "success",
     "danger",
-    "highlight",
-    "special",
-    "disabled",
+    // "special",
+    // "danger outline neon",
+    // "special outline neon",
+    // "special-outline",
+    // "disabled",
+    // "wildcard-outline",
+    // "sunset-grad",
   ],
+  ["", "outline"],
+  ["", "neon"],
   [
     // shapes
-    "sharp",
-    "rounded",
+    // "sharp",
+    // "rounded",
     "pill",
   ],
-  //borders
-  ["solid", "dashed"],
+  //bordrers
+  // ["solid", "dashed"],
 ];
 
 export default {
@@ -29,10 +33,3 @@ export default {
 };
 export const Collage = () =>
   makeCollage(Button, catagories, "class_name", "children");
-
-const catagoriesPlus = {
-  class_name: [
-    ["primary", "secondary"],
-    ["rounded", "pill"],
-  ],
-};

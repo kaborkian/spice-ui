@@ -1,12 +1,12 @@
-$primary-color: #3e8bf2;
-$secondary-color: #e7e7e7;
-$success-color: #179c5b;
-$danger-color: #db3e38;
-$highlight-color: #f4b01e;
-$special-color: #952dfa;
-$disabled-color: #e0e0e0;
+@import "../../utilities/themes.scss";
+$theme-colors: $default-theme-colors;
+$current-color: hotpink;
 
-%btn {
+:root {
+  --current-color: red;
+}
+
+.btn {
   font-weight: 700;
   font-size: 1rem;
   padding: 6px 12px;
@@ -15,59 +15,46 @@ $disabled-color: #e0e0e0;
   outline: none;
   cursor: pointer;
   margin: 4px;
+  //when btn class is used alone (it shouldn't)
+  background-image: url("../../utilities/missing_texture.png");
+  color: white;
+  image-rendering: pixelated;
+  background-size: 1.25em;
 }
 
-// colors
-.primary {
-  @extend %btn;
-  background-color: $primary-color;
-  color: $secondary-color;
+@each $color, $value in $theme-colors {
+  .#{$color} {
+    @extend .btn;
+    background: $value;
+    color: $value;
+    --current-color: currentColor;
+    color: black;
+
+    &.outline {
+      border-color: $value;
+      color: $value;
+      background-color: transparent;
+
+      &.neon { //special case for neon + outline
+        color: $value;
+        text-shadow: 0 0 1em $value;
+        box-shadow: 0 0 1.2em $value;
+      }
+    }
+
+    &.neon {  //solid neon is default
+      border-color: $value;
+      color:  white;
+      box-shadow: 0 0 1em $value;
+    }
+  }
 }
-.secondary {
-  @extend %btn;
-  background-color: $secondary-color;
-  color: #000;
-}
-.success {
-  @extend %btn;
-  background-color: $success-color;
-  color: $secondary-color;
-}
-.danger {
-  @extend %btn;
-  background-color: $danger-color;
-  color: $secondary-color;
-}
-.highlight {
-  @extend %btn;
-  background-color: $highlight-color;
-  color: $secondary-color;
-}
-.special {
-  @extend %btn;
-  background-color: $special-color;
-  color: $secondary-color;
-}
+
+// specail case overrides
 .disabled {
-  @extend %btn;
-  background-color: $disabled-color;
+  background-color: map-get($theme-colors, "disabled");
   color: #656565;
   cursor: not-allowed;
-}
-
-// variants
-.outline {
-  background-color: transparent;
-  color: calc(calc("--" + attr()) + "-color");
-  border-color: attr(color);
-}
-
-// shape
-.rounded {
-  border-radius: 10px;
-}
-.pill {
-  border-radius: 1000px;
 }
 
 // hover animations

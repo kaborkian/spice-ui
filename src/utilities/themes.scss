@@ -1,0 +1,41 @@
+$default-theme-colors: (
+  "primary": #3e8bf2,
+  "secondary": white,
+  "success": #179c5b,
+  "danger": #db3e38,
+  "warning": #f4b01e,
+  "special": #952dfa,
+  "wildcard": hotpink,
+  "disabled": #e0e0e0,
+  "sunset-grad": linear-gradient(90deg, #8241b2 0%, #fd001f 50%, #fcad4b 100%),
+);
+$inverted-theme-colors: (
+  "primary": #c1740d,
+  "secondary": black,
+  "success": #e863a4,
+  "danger": #24c1c7,
+  "warning": #0b4fe1,
+  "special": #6ad205,
+  "wildcard": #01974c,
+  "disabled": #1f1f1f,
+  "sunset-grad": linear-gradient(90deg, #7dbe4d 0%, #02ffe0 50%, #0352b4 100%),
+);
+
+//functions
+//str-split("first second third", " ") => ("first", "second", "third")
+@function str-split($string, $separator) {
+  $list: ();
+  $index: str-index($string, $separator);
+
+  @while $index != null {
+    $word: str-slice($string, 1, $index - 1);
+    $list: append($list, $word);
+    $string: str-slice(
+      $string,
+      $index + 1
+    ); // trimming the string to not include found word
+    $index: str-index($string, $separator);
+  }
+  $list: append($list, $string); // adding the last word
+  @return $list;
+}

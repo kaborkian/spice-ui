@@ -27,7 +27,7 @@ function cartesian(a: any) {
 
 function makeCollage(
   Comp: any,
-  catagories: string[][],
+  catagories: any[][],
   ...propNames: string[]
 ): any {
   const combinations = cartesian(catagories);
